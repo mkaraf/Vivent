@@ -66,5 +66,6 @@ const postCollection = defineCollection({
 });
 
 export const collections = {
-  post: postCollection,
+  // NOTE: Blog disabled - post collection commented out
+  // post: postCollection,
 };

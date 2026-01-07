@@ -1,5 +1,5 @@
 site:
-  name: AstroWind
+  name: Vivent
   site: 'https://astrowind.vercel.app'
   base: '/'
   trailingSlash: false
@@ -9,14 +9,14 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: AstroWind
-    template: '%s — AstroWind'
+    default: Vivent
+    template: '%s — Vivent'
   description: "\U0001F680 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs."
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: AstroWind
+    site_name: Vivent
     images:
       - url: '~/assets/images/default.png'
         width: 1200
@@ -33,7 +33,7 @@ i18n:
 
 apps:
   blog:
-    isEnabled: true
+    isEnabled: false
     postsPerPage: 6
 
     post:
@@ -63,10 +63,11 @@ apps:
     isRelatedPostsEnabled: true
     relatedPostsCount: 4
 
+# NOTE: Theme switch related - Set to light:only to disable dark mode toggle
+ui:
+  theme: 'light:only'
+
 analytics:
   vendors:
     googleAnalytics:
       id: null # or "G-XXXXXXXXXX"
-
-ui:
-  theme: 'system' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"
