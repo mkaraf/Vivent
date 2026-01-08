@@ -24,8 +24,8 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Make an Appointment',
-        href: 'features',
+        text: 'Objednat se',
+        href: '#reservation',
         target: '_blank',
       }
     ]}
@@ -33,17 +33,174 @@ const metadata = {
   >
     <Fragment slot="title">
       Dentální hygiena <span class="hidden xl:inline">ve Zlíně</span>
-      <span class="text-accent dark:text-white"> Vivent</span>
     </Fragment>
-    <br>
+    <br />
     <Fragment slot="subtitle">
       <span class="hidden sm:inline">Profesionální péče pro Váš krásný úsměv</span>
     </Fragment>
   </Hero>
 
+
+   <!-- Content Widget **************** -->
+
+  <Content
+    isReversed
+    tagline=""
+    id="aboutUs"
+    title="O nás"
+    items={[
+      {
+        title: 'Built on top of Astro 5.0',
+        description:
+          'Benefiting from the performance and developer-friendly features of this modern static site generator.',
+      },
+      {
+        title: 'Styled using Tailwind CSS',
+        description:
+          'Facilitating rapid design and consistent styling with this highly popular utility-first CSS framework.',
+      },
+      {
+        title: 'Cross-browser compatibility',
+        description:
+          'Ensure your website looks and functions consistently across various web browsers, delivering a seamless experience to all users.',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/person.png',
+      alt: 'Colorful Image',
+    }}
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Building on modern foundations</h3>
+      Gain a competitive advantage by incorporating industry leading practices
+    </Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  <!-- Content Widget **************** -->
+
+  <Content
+    isAfterContent
+    items={[
+      {
+        title: 'High level of customization',
+        description: `Tailor the template effortlessly to match your brand's identity and requirements, making your website distinct and saving you time.`,
+      },
+      {
+        title: 'Multiple layout possibilities',
+        description:
+          'Explore various layout options to find the structure that best presents your content, enhancing user engagement and navigation.',
+      },
+      {
+        title: 'Fully responsive design',
+        description:
+          "Ensure your website's optimal performance on various devices and screen sizes, providing a consistent and enjoyable user experience.",
+      },
+      {
+        title: 'Integration of media',
+        description:
+          'Seamlessly incorporate images, videos, and multimedia elements that enhance your content and engage visitors effectively.',
+      },
+    ]}
+    image={{
+      src: '~/assets/images/lab.png',
+      alt: 'Blueprint Image',
+    }}
+  >
+    <Fragment slot="content">Ensure your online presence truly represents you.</Fragment>
+
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Content>
+
+  
+ <!-- Features Widget *************** -->
+
+  <Features
+    id="services"
+    tagline=""
+    title="Co Vám můžeme nabídnout"
+    subtitle=""
+    items={[
+      {
+        title: 'Dentální hygienu',
+        description:
+          'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Fusce consectetuer risus a nunc.',
+        icon: 'tabler:brand-tailwind',
+      },
+      {
+        title: 'Instruktáž',
+        description:
+          'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Fusce consectetuer risus a nunc. Fusce nibh.',
+        icon: 'tabler:components',
+      },
+      {
+        title: 'Bělení',
+        description:
+          'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Fusce consectetuer risus a nunc. Fusce nibh.',
+        icon: 'tabler:list-check',
+      },
+            {
+        title: 'Něco',
+        description:
+          'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Fusce consectetuer risus a nunc. Fusce nibh.',
+        icon: 'tabler:list-check',
+      },
+    ]}
+  />
+
+   <!-- Features Todo *************** -->
+
+  <Features
+    id="priceList"
+    tagline=""
+    title="Ceník"
+    subtitle="TODO"
+
+  />
+
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    id="reservation"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Vytvořit rezervaci ',
+        href: '',
+        target: '_blank',
+        icon: 'tabler:calendar-time',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      Rezervace
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      Tlačítko níže je nahovno a je jen placeholder
+    </Fragment>
+  </CallToAction>
+
+    <!-- Features Todo *************** -->
+
+  <Features
+    id="contact"
+    tagline=""
+    title="Kontakt"
+    subtitle="TODO"
+
+  />
+
   <!-- FAQs Widget ******************* -->
 
   <FAQs
+    id="faqs"
     title="Frequently Asked Questions"
     subtitle="Dive into the following questions to gain insights into the powerful features that AstroWind offers and how it can elevate your web development journey."
     tagline="FAQs"

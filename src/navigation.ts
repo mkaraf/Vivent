@@ -3,24 +3,28 @@ import { getPermalink } from './utils/permalinks';
 export const headerData = {
   links: [
     {
-      text: 'About Us',
-      href: '#',
+      text: 'O nás',
+      href: '#aboutUs',
     },
     {
-      text: 'Services',
-      href: '#',
+      text: 'Služby',
+      href: '#services',
     },
     {
-      text: 'Offers',
-      href: '#',
+      text: 'Ceník',
+      href: '#priceList',
     },
     {
-      text: 'Order',
-      href: '#',
+      text: 'Rezervace',
+      href: '#reservation',
     },
     {
-      text: 'Contact',
-      href: '#',
+      text: 'Kontakt',
+      href: '#contact',
+    },
+    {
+      text: 'FAQ',
+      href: '#faqs',
     },
   ],
   socialLinks: [
