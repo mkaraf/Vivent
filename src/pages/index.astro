@@ -7,6 +7,7 @@ import Features from '~/components/widgets/Features.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import Steps from '~/components/widgets/Steps.astro';
 import Content from '~/components/widgets/Content.astro';
+import Contact from '~/components/widgets/Contact.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
@@ -29,14 +30,14 @@ const metadata = {
         target: '_blank',
       }
     ]}
-    image={{ src: '~/assets/images/hero-image.png', alt: 'AstroWind Hero Image' }}
+    image={{ src: '~/assets/images/laning_page.png', alt: 'AstroWind Hero Image' }}
   >
     <Fragment slot="title">
-      Dentální hygiena <span class="hidden xl:inline">ve Zlíně</span>
+      Dentální hygiena ve Zlíně
     </Fragment>
     <br />
     <Fragment slot="subtitle">
-      <span class="hidden sm:inline">Profesionální péče pro Váš krásný úsměv</span>
+      Profesionální péče pro Váš krásný úsměv
     </Fragment>
   </Hero>
 
@@ -71,12 +72,12 @@ const metadata = {
     }}
   >
     <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Building on modern foundations</h3>
+      <h3 class="text-2xl font-bold tracking-tight sm:text-3xl mb-2">Building on modern foundations</h3>
       Gain a competitive advantage by incorporating industry leading practices
     </Fragment>
 
     <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+      <div class="absolute inset-0"></div>
     </Fragment>
   </Content>
 
@@ -113,7 +114,7 @@ const metadata = {
     <Fragment slot="content">Ensure your online presence truly represents you.</Fragment>
 
     <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+      <div class="absolute inset-0"></div>
     </Fragment>
   </Content>
 
@@ -127,41 +128,48 @@ const metadata = {
     subtitle=""
     items={[
       {
-        title: 'Dentální hygienu',
-        description:
-          'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Fusce consectetuer risus a nunc.',
-        icon: 'tabler:brand-tailwind',
+        title: 'Kompletní dentální hygiena',
+        description: 'Odstranění zubního kamene, leštění zubů, aplikace fluoridů',
+        icon: 'tabler:dental',
       },
       {
-        title: 'Instruktáž',
-        description:
-          'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Fusce consectetuer risus a nunc. Fusce nibh.',
-        icon: 'tabler:components',
+        title: 'Bělení zubů',
+        description: 'Profesionální bělení metodou Beyond',
+        icon: 'tabler:sparkles',
       },
       {
-        title: 'Bělení',
-        description:
-          'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Fusce consectetuer risus a nunc. Fusce nibh.',
-        icon: 'tabler:list-check',
+        title: 'Instruktáž ústní hygieny',
+        description: 'Individuální poradenství a nácvik správné techniky',
+        icon: 'tabler:school',
       },
-            {
-        title: 'Něco',
-        description:
-          'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Fusce consectetuer risus a nunc. Fusce nibh.',
-        icon: 'tabler:list-check',
+      {
+        title: 'Pískování zubů',
+        description: 'Odstranění povrchových skvrn a pigmentací',
+        icon: 'tabler:atom-2',
+      },
+      {
+        title: 'Fluoridace',
+        description: 'Aplikace fluoridového laku pro posílení skloviny',
+        icon: 'tabler:shield-check',
+      },
+      {
+        title: 'Iniciální konzultace',
+        description: 'Prohlídka a konzultace',
+        icon: 'tabler:gift',
       },
     ]}
   />
 
-   <!-- Features Todo *************** -->
+   <!-- Features Ceník *************** -->
 
   <Features
     id="priceList"
     tagline=""
     title="Ceník"
-    subtitle="TODO"
+    subtitle="Naše služby za dostupné ceny"
+  >
 
-  />
+  </Features>
 
 
   <!-- CallToAction Widget *********** -->
@@ -187,15 +195,65 @@ const metadata = {
     </Fragment>
   </CallToAction>
 
-    <!-- Features Todo *************** -->
+  <!-- Features2 Widget ************** -->
 
-  <Features
+  <Features2
     id="contact"
-    tagline=""
-    title="Kontakt"
-    subtitle="TODO"
-
+    title="We are here to help!"
+    columns={4}
+    items={[
+        {
+        title: 'Otevírací doba',
+        description: `
+          <div class="space-y-2 text-left">
+            <div class="flex justify-between">
+              <span>Po-Čt:</span>
+              <span class="font-semibold">8:00 - 16:00</span>
+            </div>
+            <div class="flex justify-between">
+              <span>Pá:</span>
+              <span class="font-semibold">8:00 - 14:00</span>
+            </div>
+            <div class="flex justify-between text-muted">
+              <span>So-Ne:</span>
+              <span class="font-semibold">Zavřeno</span>
+            </div>
+          </div>
+        `,
+        icon: 'tabler:clock',
+      },
+      {
+        title: 'Phone',
+        description: '+1 (234) 567-890',
+        icon: 'tabler:headset',
+      },
+      {
+        title: 'Email',
+        description: 'contact@support.com',
+        icon: 'tabler:mail',
+      },
+      {
+        title: 'Location',
+        description: 'Zelinova 7012, 760 05 Zlín 5',
+        icon: 'tabler:map-pin',
+      },
+    ]}
   />
+
+  <!-- Map Widget ******************** -->
+  <section class="relative not-prose py-8 md:py-12">
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="relative w-full rounded-2xl overflow-hidden shadow-lg border-2 border-dh-light-beige" style="aspect-ratio: 16/6;">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1095.188720205742!2d17.6706285939571!3d49.2420452009725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471374ad7a67da07%3A0xc350c5fb28dd11f8!2sZelinova%2C%20760%2005%20Zl%C3%ADn%205!5e0!3m2!1scs!2scz!4v1767952779000!5m2!1scs!2scz" 
+          style="border:0; width: 100%; height: 100%; position: absolute; top: 0; left: 0;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </div>
+  </section>
 
   <!-- FAQs Widget ******************* -->
 

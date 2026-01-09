@@ -12,6 +12,14 @@ export default {
         accent: 'var(--aw-color-accent)',
         default: 'var(--aw-color-text-default)',
         muted: 'var(--aw-color-text-muted)',
+        
+        // Dental Hygiene Color Palette
+        'dh-cream': '#F5EDE1',
+        'dh-light-beige': '#EADDCB',
+        'dh-light-green': '#AEC790',
+        'dh-dark-green': '#7C8B67',
+        'dh-soft-brown': '#A18260',
+        'dh-text-brown': '#5A4232',
       },
       fontFamily: {
         sans: ['var(--aw-font-sans, ui-sans-serif)', ...defaultTheme.fontFamily.sans],
@@ -20,7 +28,7 @@ export default {
       },
 
       animation: {
-        fade: 'fadeInUp 1s both',
+        fade: 'fadeInUp 1000ms both',
       },
 
       keyframes: {
