@@ -1,5 +1,3 @@
-import { getPermalink } from './utils/permalinks';
-
 export const headerData = {
   links: [
     {
@@ -85,6 +83,6 @@ export const footerData = {
     // { text: 'Privacy Policy', href: getPermalink('/privacy') },
   ],
   footNote: `
-    © 2026 Vivent
+    © 2026 SanaDenta
   `,
 };
