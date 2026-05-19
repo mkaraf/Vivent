@@ -30,7 +30,7 @@
   }
 
   .btn-secondary {
-    @apply btn;
+    @apply btn hover:bg-dh-light-beige hover:border-dh-soft-brown;
   }
 
   .btn-tertiary {

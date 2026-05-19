@@ -18,17 +18,19 @@ const {
 } = Astro.props;
 ---
 
-<section class="relative not-prose" {...id ? { id } : {}}>
+<section class="relative not-prose overflow-hidden" {...id ? { id } : {}}>
   <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
     <slot name="bg">
       {bg ? <Fragment set:html={bg} /> : null}
     </slot>
   </div>
+
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
-    <div class="pt-16 pb-8 md:pt-28 md:pb-12">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+    <div class="pt-0 pb-8 md:pt-0 md:pb-12">
+      <div class="grid grid-cols-1 md:grid-cols-[1fr,2fr] gap-8 md:gap-12 items-center">
+
         {/* Text Content */}
-        <div class="text-center pb-10 md:pb-0 flex flex-col items-center md:items-center">
+        <div class="order-2 md:order-1 text-center md:text-left pb-10 md:pb-0 flex flex-col items-center md:items-start">
           {
             tagline && (
               <p
@@ -40,27 +42,27 @@ const {
           {
             title && (
               <h1
-                class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading animate-fade"
+                class="text-4xl md:text-4xl lg:text-5xl font-extrabold leading-[1.1] tracking-tighter mb-10 font-heading animate-fade"
                 set:html={title}
               />
             )
           }
-          <div class="max-w-3xl">
+          <div class="max-w-sm">
             {
               subtitle && (
                 <p
-                  class="text-xl text-muted mb-6 animate-fade"
+                  class="text-lg text-default mb-12 animate-fade font-light leading-relaxed tracking-wide"
                   set:html={subtitle}
                 />
               )
             }
             {
               actions && (
-                <div class="flex flex-nowrap flex-col sm:flex-row gap-4 justify-center animate-fade">
+                <div class="flex flex-nowrap flex-row gap-4 justify-center md:justify-start animate-fade">
                   {Array.isArray(actions) ? (
                     actions.map((action) => (
-                      <div class="flex w-full sm:w-auto">
-                        <Button {...(action || {})} class="w-full sm:mb-0" />
+                      <div class="flex">
+                        <Button {...(action || {})} class="whitespace-nowrap" />
                       </div>
                     ))
                   ) : (
@@ -74,15 +76,15 @@ const {
         </div>
 
         {/* Image Content */}
-        <div class="animate-fade">
+        <div class="order-1 md:order-2 animate-fade">
           {
             image && (
               <div class="relative w-full flex justify-center">
-                {typeof image === 'string' ? (
+{typeof image === 'string' ? (
                   <Fragment set:html={image} />
                 ) : (
                   <Image
-                    class="w-full"
+                    class="relative w-full drop-shadow-xl"
                     style="border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;"
                     widths={[400, 768, 1024, 2040]}
                     sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
@@ -95,6 +97,7 @@ const {
             )
           }
         </div>
+
       </div>
     </div>
   </div>
