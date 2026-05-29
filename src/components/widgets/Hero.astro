@@ -1,161 +1,121 @@
 ---
-import Image from '~/components/common/Image.astro';
-import Button from '~/components/ui/Button.astro';
-
+import { Image } from 'astro:assets';
 import type { Hero as Props } from '~/types';
+import heroDefaultImg from '~/template/assets/hero-family.jpg';
 
 const {
   title = await Astro.slots.render('title'),
   subtitle = await Astro.slots.render('subtitle'),
-  tagline,
-
-  content = await Astro.slots.render('content'),
-  actions = await Astro.slots.render('actions'),
-  image = await Astro.slots.render('image'),
-
+  actions,
   id,
   bg = await Astro.slots.render('bg'),
 } = Astro.props;
+
+const VALUES = [
+  { icon: 'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z', label: 'Bezbolestné ošetření' },
+  { icon: 'M13 10V3L4 14h7v7l9-11h-7z', label: 'Moderní prostředí' },
+  { icon: 'M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z', label: 'Citlivý přístup' },
+];
 ---
 
-<section class="relative not-prose" {...id ? { id } : {}}>
+<section class="relative overflow-hidden grain not-prose" {...id ? { id } : {}}>
   <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
     <slot name="bg">
       {bg ? <Fragment set:html={bg} /> : null}
     </slot>
   </div>
 
-  {/* Ambient botanical motifs */}
-  <div aria-hidden="true" class="pointer-events-none absolute inset-0 overflow-hidden">
-    <div
-      class="absolute -left-40 top-20 h-[320px] w-[320px] rounded-full blur-3xl sm:h-[500px] sm:w-[500px]"
-      style="background-color: var(--color-sage, oklch(0.68 0.06 140)); opacity: 0.15;"
-    ></div>
-    <div
-      class="absolute -right-20 top-1/3 h-[360px] w-[360px] rounded-full blur-3xl sm:right-0 sm:h-[600px] sm:w-[600px]"
-      style="background-color: var(--color-accent, oklch(0.72 0.12 70)); opacity: 0.10;"
-    ></div>
-    <svg
-      class="absolute left-4 top-20 h-12 w-12 animate-shimmer sm:left-12 sm:top-32 sm:h-20 sm:w-20"
-      style="color: oklch(0.68 0.06 140 / 0.40);"
-      viewBox="0 0 100 100"
-      fill="none"
-    >
-      <path d="M50 10 Q70 30 50 90 Q30 30 50 10 Z" fill="currentColor"></path>
-      <path d="M50 10 L50 90" stroke="oklch(0.45 0.06 140)" stroke-width="0.5"></path>
-    </svg>
-    <svg
-      class="absolute bottom-10 right-6 h-10 w-10 rotate-45 animate-shimmer sm:bottom-24 sm:right-1/4 sm:h-16 sm:w-16"
-      style="color: oklch(0.72 0.12 70 / 0.40);"
-      viewBox="0 0 100 100"
-      fill="none"
-    >
-      <path d="M50 10 Q70 30 50 90 Q30 30 50 10 Z" fill="currentColor"></path>
-    </svg>
-  </div>
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute -top-32 -left-32 h-[520px] w-[520px] rounded-full opacity-50 blur-3xl"
+    style="background: radial-gradient(closest-side, oklch(0.85 0.04 145 / 0.55), transparent);"
+  ></div>
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute -bottom-40 right-0 h-[480px] w-[480px] rounded-full opacity-60 blur-3xl"
+    style="background: radial-gradient(closest-side, oklch(0.88 0.05 85 / 0.55), transparent);"
+  ></div>
 
-  <div class="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-5 pb-16 pt-8 sm:gap-16 sm:px-8 sm:pb-24 sm:pt-12 lg:grid-cols-2 lg:pt-20">
+  <div class="relative mx-auto grid max-w-7xl items-center gap-12 px-5 py-16 md:px-8 md:py-24 lg:grid-cols-2 lg:gap-16 lg:py-28">
 
-    {/* Copy */}
-    <div class="relative z-10 animate-fade-up">
-      {
-        tagline && (
-          <p
-            class="mb-4 text-sm font-medium uppercase tracking-widest"
-            style="color: var(--color-primary);"
-            set:html={tagline}
-          />
-        )
-      }
-      {
-        title && (
-          <h1
-            class="font-display leading-[1] tracking-tight text-[2.75rem] sm:text-6xl lg:text-7xl [&_span]:italic [&_span]:text-primary"
-            style="color: var(--color-foreground); letter-spacing: -0.02em;"
-            set:html={title}
-          />
-        )
-      }
+    <div class="relative">
 
-      <div class="mt-8 flex items-center gap-4 sm:mt-10">
-        <span class="h-px w-12" style="background-color: var(--color-accent);"></span>
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="color: var(--color-accent);">
-          <path d="M12 2 Q15 8 22 12 Q15 16 12 22 Q9 16 2 12 Q9 8 12 2 Z" fill="currentColor" opacity="0.7"></path>
+      {title && (
+        <h1
+          class="mt-6 font-display text-5xl leading-[1.02] tracking-tight text-(--color-foreground) [&_span]:italic [&_span]:text-(--color-primary-deep) md:text-6xl lg:text-7xl"
+          set:html={title}
+        />
+      )}
+
+      <div class="mt-8 flex items-center gap-3 sm:mt-10">
+        <span class="h-px w-16 bg-(--color-accent)"></span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="shrink-0 text-(--color-accent)">
+          <path d="M12 2 L13.8 9.2 L21 12 L13.8 14.8 L12 22 L10.2 14.8 L3 12 L10.2 9.2 Z" />
         </svg>
-        <span class="h-px max-w-[60px] flex-1" style="background-color: var(--color-border);"></span>
+        <span class="h-px w-16 bg-(--color-accent)"></span>
       </div>
 
-      {
-        subtitle && (
-          <p
-            class="mt-6 max-w-md text-base leading-relaxed sm:mt-8 sm:text-lg"
-            style="color: var(--color-muted-foreground);"
-            set:html={subtitle}
-          />
-        )
-      }
+      {subtitle && (
+        <p
+          class="mt-6 max-w-xl text-lg leading-relaxed text-(--color-muted-foreground) md:text-xl"
+          set:html={subtitle}
+        />
+      )}
 
-      {
-        actions && (
-          <div class="mt-8 flex flex-wrap items-center gap-3 sm:mt-12 sm:gap-4">
-            {Array.isArray(actions) ? (
-              actions.map((action) => (
-                <div class="flex">
-                  <Button {...(action || {})} class="whitespace-nowrap" />
-                </div>
-              ))
+      {Array.isArray(actions) && actions.length > 0 && (
+        <div class="mt-9 flex flex-wrap items-center gap-3">
+          {actions.map((action) =>
+            action?.variant === 'primary' ? (
+              <a
+                href={action.href}
+                {...action.target ? { target: action.target, rel: 'noopener noreferrer' } : {}}
+                class="inline-flex items-center gap-2 rounded-full bg-(--color-primary) px-7 py-3.5 text-base font-semibold text-(--color-primary-foreground) transition hover:bg-(--color-primary-deep) hover:-translate-y-px"
+                style="box-shadow: 0 18px 40px -18px oklch(0.48 0.07 145 / 0.6);"
+              >
+                {action.text}
+              </a>
             ) : (
-              <Fragment set:html={actions} />
-            )}
-          </div>
-        )
-      }
+              <a
+                href={action.href}
+                class="inline-flex items-center gap-2 rounded-full border border-(--color-foreground)/15 bg-(--color-background)/60 px-6 py-3.5 text-base font-semibold text-(--color-foreground) transition hover:border-(--color-foreground)/30 hover:bg-(--color-secondary)"
+              >
+                {action.text}
+              </a>
+            )
+          )}
+        </div>
+      )}
 
-      {content && <Fragment set:html={content} />}
+      <ul class="mt-12 flex flex-wrap gap-x-6 gap-y-3 border-t border-(--color-border)/70 pt-8">
+        {VALUES.map((v) => (
+          <li class="flex items-center gap-2 text-sm font-medium text-(--color-foreground)/80">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 text-(--color-primary-deep)">
+              <path d={v.icon} />
+            </svg>
+            {v.label}
+          </li>
+        ))}
+      </ul>
     </div>
 
-    {/* Visual */}
-    <div class="relative">
-      {
-        image && (
-          <div class="relative mx-auto aspect-square w-full max-w-[340px] sm:max-w-[600px]">
-            <div class="absolute inset-0 rounded-full border" style="border-color: oklch(0.72 0.12 70 / 0.15);"></div>
-            <div class="absolute inset-4 rounded-full border sm:inset-8" style="border-color: oklch(0.68 0.06 140 / 0.20);"></div>
-            <div class="absolute inset-8 rounded-full sm:inset-16" style="background: radial-gradient(circle, oklch(0.975 0.014 80 / 0.60) 0%, transparent 70%);"></div>
+    <div class="relative mx-auto w-full max-w-[560px]">
+      <div
+        aria-hidden="true"
+        class="absolute -inset-6 bg-(--color-primary)/15"
+        style="border-radius: 58% 42% 60% 40% / 52% 48% 52% 48%; box-shadow: var(--shadow-blob);"
+      ></div>
+      <div class="hero-blob relative overflow-hidden bg-(--color-card)">
+        <Image
+          src={heroDefaultImg}
+          alt="Klidná atmosféra dentálního studia SanaDenta ve Zlíně"
+          width={1024}
+          height={1024}
+          loading="eager"
+          class="h-full w-full object-cover"
+        />
+      </div>
 
-            {typeof image === 'string' ? (
-              <Fragment set:html={image} />
-            ) : (
-              <Image
-                class="relative z-10 h-full w-full animate-float-slow object-contain"
-                widths={[400, 768, 1024]}
-                sizes="(max-width: 767px) 340px, 600px"
-                loading="eager"
-                layout="responsive"
-                {...image}
-              />
-            )}
-
-            <div
-              class="absolute -right-2 bottom-8 z-20 animate-fade-up rounded-2xl border px-3 py-2 shadow-xl backdrop-blur sm:-right-4 sm:bottom-16 sm:px-5 sm:py-3"
-              style="border-color: var(--color-border); background-color: oklch(0.975 0.014 80 / 0.90);"
-            >
-              <div class="flex items-center gap-2">
-                <span class="h-2 w-2 animate-pulse rounded-full" style="background-color: var(--color-primary);"></span>
-                <span class="text-[11px] sm:text-xs" style="color: var(--color-muted-foreground);">
-                  Volné termíny tento týden
-                </span>
-              </div>
-            </div>
-          </div>
-        )
-      }
     </div>
 
-  </div>
-
-  {/* Bottom section divider */}
-  <div class="mx-auto max-w-7xl px-8">
-    <div class="h-px" style="background: linear-gradient(to right, transparent, var(--color-border), transparent);"></div>
   </div>
 </section>

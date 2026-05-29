@@ -13,10 +13,6 @@ export const headerData = {
       href: '#priceList',
     },
     {
-      text: 'Rezervace',
-      href: '#reservation',
-    },
-    {
       text: 'Kontakt',
       href: '#contact',
     },

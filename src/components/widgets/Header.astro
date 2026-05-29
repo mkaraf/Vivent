@@ -1,13 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
-import Logo from '~/components/Logo.astro';
-import ToggleTheme from '~/components/common/ToggleTheme.astro';
-import ToggleMenu from '~/components/common/ToggleMenu.astro';
-import Button from '~/components/ui/Button.astro';
-
 import { getHomePermalink } from '~/utils/permalinks';
-import { trimSlash, getAsset } from '~/utils/permalinks';
-import type { CallToAction } from '~/types';
 
 interface Link {
   text?: string;
@@ -16,149 +9,107 @@ interface Link {
   icon?: string;
 }
 
-interface MenuLink extends Link {
-  links?: Array<MenuLink>;
-}
-
 export interface Props {
-  id?: string;
-  links?: Array<MenuLink>;
-  actions?: Array<CallToAction>;
-  isSticky?: boolean;
-  isFullWidth?: boolean;
+  links?: Array<{ text: string; href: string }>;
   socialLinks?: Array<Link>;
-  position?: string;
+  isSticky?: boolean;
 }
 
-const {
-  id = 'header',
-  links = [],
-  actions = [],
-  isSticky = false,
-  isFullWidth = false,
-  socialLinks = [],
-  position = 'center',
-} = Astro.props;
-
-const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`;
+const { links = [], socialLinks = [], isSticky = false } = Astro.props;
 ---
 
 <header
   class:list={[
-    { sticky: isSticky, relative: !isSticky },
-    'top-0 z-40 flex-none mx-auto w-full border-b border-gray-50/0 transition-[opacity] ease-in-out',
+    { sticky: isSticky },
+    'top-0 z-40 border-b border-(--color-border)/60 bg-(--color-background)/90 backdrop-blur-md',
   ]}
-  {...isSticky ? { 'data-aw-sticky-header': true } : {}}
-  {...id ? { id } : {}}
 >
-  <div class="absolute inset-0"></div>
-  <div
-    class:list={[
-      'relative text-default bg-page py-3 px-3 md:px-6 mx-auto w-full',
-      {
-        'md:flex md:justify-between': position !== 'center',
-      },
-      {
-        'md:grid md:grid-cols-3 md:items-center': position === 'center',
-      },
-      {
-        'max-w-7xl': !isFullWidth,
-      },
-    ]}
-  >
-    <div class:list={[{ 'mr-auto rtl:mr-0 rtl:ml-auto': position === 'right' }, 'flex justify-between']}>
-      <a class="flex items-center" href={getHomePermalink()}>
-        <Logo />
-      </a>
-      <div class="flex items-center md:hidden">
-        <ToggleMenu />
+  <div class="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-4 md:px-8 md:py-5">
+
+    <a href={getHomePermalink()} class="flex items-center gap-3">
+      <div class="flex flex-col leading-none">
+        <span class="font-serif text-2xl md:text-[28px] font-semibold tracking-tight">
+          <span style="color: var(--color-foreground);">Sana</span><span style="color: var(--color-primary-deep);">Denta</span>
+        </span>
+        <span class="mt-1 text-[11px] uppercase tracking-[0.22em]" style="color: var(--color-muted-foreground);">
+          Dentální hygiena · Zlín
+        </span>
       </div>
-    </div>
-    <nav
-      class="items-center w-full md:w-auto hidden md:flex md:mx-5 overflow-y-auto overflow-x-hidden md:overflow-y-visible md:overflow-x-auto md:justify-self-center mt-20 md:mt-0"
-      aria-label="Main navigation"
-    >
-      <ul
-        class="flex flex-col md:flex-row md:self-center w-full md:w-auto text-xl md:text-[0.9375rem] tracking-[0.01rem] font-medium md:justify-center"
-      >
-        {
-          links.map(({ text, href, links }) => (
-            <li class={links?.length ? 'dropdown' : ''}>
-              {links?.length ? (
-                <>
-                  <button
-                    type="button"
-                    class="hover:text-primary px-4 py-3 flex items-center whitespace-nowrap"
-                  >
-                    {text}{' '}
-                    <Icon name="tabler:chevron-down" class="w-3.5 h-3.5 ml-0.5 rtl:ml-0 rtl:mr-0.5 hidden md:inline" />
-                  </button>
-                  <ul class="dropdown-menu md:backdrop-blur-md dark:md:bg-dark rounded md:absolute pl-4 md:pl-0 md:hidden font-medium md:bg-white/90 md:min-w-[200px] drop-shadow-xl">
-                    {links.map(({ text: text2, href: href2 }) => (
-                      <li>
-                        <a
-                          class:list={[
-                            'first:rounded-t last:rounded-b md:hover:bg-gray-100 hover:text-primary py-2 px-5 block whitespace-no-wrap',
-                            { 'aw-link-active': href2 === currentPath },
-                          ]}
-                          href={href2}
-                        >
-                          {text2}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </>
-              ) : (
-                <a
-                  class:list={[
-                    'hover:text-primary px-4 py-3 flex items-center whitespace-nowrap',
-                    { 'aw-link-active': href === currentPath },
-                  ]}
-                  href={href}
-                >
-                  {text}
-                </a>
-              )}
-            </li>
-          ))
-        }
-      </ul>
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-1">
+      {links.map((link) => (
+        <a
+          href={link.href}
+          class="px-3.5 py-2 text-[15px] font-medium text-(--color-foreground)/80 transition-colors hover:text-(--color-primary-deep)"
+        >
+          {link.text}
+        </a>
+      ))}
     </nav>
-    <div
-      class:list={[
-        { 'ml-auto rtl:ml-0 rtl:mr-auto': position === 'left' },
-        'hidden md:self-center md:flex items-center md:mb-0 fixed w-full md:w-auto md:static justify-end left-0 rtl:left-auto rtl:right-0 bottom-0 p-3 md:p-0 md:justify-self-end',
-      ]}
-    >
-      <div class="items-center flex justify-between w-full md:w-auto">
-        <div class="flex">
-          {
-            socialLinks?.length ? (
-              socialLinks.map(({ ariaLabel, icon, href }) => (
-                <a
-                  class="text-muted hover:text-primary hover:bg-dh-light-beige focus:outline-none focus:ring-4 focus:ring-dh-light-beige rounded-lg text-sm p-2.5 inline-flex items-center"
-                  aria-label={ariaLabel}
-                  href={href}
-                >
-                  <Icon name={icon} class="w-5 h-5" />
-                </a>
-              ))
-            ) : null
-          }
+
+    <div class="flex items-center gap-2">
+      {socialLinks?.length ? (
+        <div class="hidden md:flex items-center gap-1">
+          {socialLinks.map(({ ariaLabel, icon, href }) => (
+            <a
+              href={href}
+              aria-label={ariaLabel}
+              class="grid h-10 w-10 place-items-center rounded-full text-(--color-foreground)/70 transition hover:bg-(--color-secondary) hover:text-(--color-primary-deep)"
+            >
+              <Icon name={icon as string} class="w-[18px] h-[18px]" />
+            </a>
+          ))}
         </div>
-        {
-          actions?.length ? (
-            <span class="ml-4 rtl:ml-0 rtl:mr-4">
-              {actions.map((btnProps) => (
-                <Button {...btnProps} class="ml-2 py-2.5 px-5.5 md:px-6 font-semibold shadow-none text-sm w-auto" />
-              ))}
-            </span>
-          ) : (
-            ''
-          )
-        }
-      </div>
+      ) : null}
+
+      <a
+        href="#reservation"
+        class="hidden md:inline-flex items-center gap-2 rounded-full bg-(--color-primary) px-5 py-2.5 text-sm font-semibold text-(--color-primary-foreground) shadow-sm transition hover:bg-(--color-primary-deep)"
+      >
+        Objednat se
+      </a>
+
+      <button
+        id="menu-toggle"
+        class="lg:hidden grid h-10 w-10 place-items-center rounded-full text-(--color-foreground)/80 transition hover:bg-(--color-secondary)"
+        aria-label="Menu"
+        aria-expanded="false"
+      >
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="4" y1="6" x2="20" y2="6"/>
+          <line x1="4" y1="12" x2="20" y2="12"/>
+          <line x1="4" y1="18" x2="20" y2="18"/>
+        </svg>
+      </button>
     </div>
   </div>
+
+  <div id="mobile-nav" class="hidden lg:hidden border-t border-(--color-border)/60 bg-(--color-background)">
+    <nav class="mx-auto flex max-w-7xl flex-col px-5 py-3">
+      {links.map((link) => (
+        <a
+          href={link.href}
+          class="py-3 text-base font-medium text-(--color-foreground)/85 transition-colors hover:text-(--color-primary-deep)"
+        >
+          {link.text}
+        </a>
+      ))}
+    </nav>
+  </div>
 </header>
+
+<script>
+  const btn = document.getElementById('menu-toggle');
+  const nav = document.getElementById('mobile-nav');
+  btn?.addEventListener('click', () => {
+    const isHidden = nav?.classList.toggle('hidden');
+    btn.setAttribute('aria-expanded', String(!isHidden));
+  });
+  nav?.querySelectorAll('a').forEach((a) =>
+    a.addEventListener('click', () => {
+      nav.classList.add('hidden');
+      btn?.setAttribute('aria-expanded', 'false');
+    })
+  );
+</script>
