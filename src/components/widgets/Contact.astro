@@ -1,6 +1,6 @@
 ---
 import FormContainer from '~/components/ui/Form.astro';
-import Headline from '~/components/ui/Headline.astro';
+import SectionHeading from '~/components/widgets/SectionHeading.astro';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import type { Contact as Props } from '~/types';
 
@@ -22,7 +22,9 @@ const {
 ---
 
 <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
-  <Headline title={title} subtitle={subtitle} tagline={tagline} />
+  {(title || subtitle) && (
+    <SectionHeading eyebrow={tagline ?? ''} title={title ?? ''} intro={subtitle} />
+  )}
 
   {
     inputs && (

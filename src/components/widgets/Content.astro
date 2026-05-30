@@ -1,12 +1,13 @@
 ---
 import type { Content as Props } from '~/types';
-import Headline from '~/components/ui/Headline.astro';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import Image from '~/components/common/Image.astro';
 import Button from '~/components/ui/Button.astro';
 import ItemGrid from '~/components/ui/ItemGrid.astro';
+import SectionHeading from '~/components/widgets/SectionHeading.astro';
 
 const {
+  eyebrow = await Astro.slots.render('eyebrow'),
   title = await Astro.slots.render('title'),
   subtitle = await Astro.slots.render('subtitle'),
   tagline,
@@ -31,17 +32,14 @@ const {
   containerClass={`max-w-7xl mx-auto ${isAfterContent ? 'pt-0 md:pt-0 lg:pt-0' : ''} ${classes?.container ?? ''}`}
   bg={bg}
 >
-  <Headline
-    title={title}
-    subtitle={subtitle}
-    tagline={tagline}
-    classes={{
-      container: 'max-w-xl sm:mx-auto lg:max-w-2xl',
-      title: 'text-4xl md:text-5xl font-bold tracking-tighter mb-4 font-heading',
-      subtitle: 'max-w-3xl mx-auto sm:text-center text-xl text-muted dark:text-slate-400',
-    }}
-  />
-  <div class="mx-auto max-w-7xl p-4 md:px-8">
+  {(title || eyebrow || subtitle) && (
+    <SectionHeading
+      eyebrow={eyebrow ?? ''}
+      title={title ?? ''}
+      intro={subtitle}
+    />
+  )}
+  <div class={`mx-auto max-w-7xl p-4 md:px-8 ${(title || eyebrow || subtitle) ? 'mt-12 md:mt-16' : ''}`}>
     <div class={`md:flex ${isReversed ? 'md:flex-row-reverse' : ''} md:gap-16`}>
       <div class="md:basis-1/2 self-center">
         {content && <div class="mb-12 text-lg dark:text-slate-400" set:html={content} />}
@@ -59,7 +57,7 @@ const {
           columns={columns}
           defaultIcon="tabler:check"
           classes={{
-            container: `gap-y-4 md:gap-y-8`,
+            container: `gap-y-4 md:gap-y-8 rounded-2xl p-6 bg-card/80`,
             panel: 'max-w-none',
             title: 'text-lg font-medium leading-6 dark:text-white ml-2 rtl:ml-0 rtl:mr-2',
             description: 'text-muted dark:text-slate-400 ml-2 rtl:ml-0 rtl:mr-2',
