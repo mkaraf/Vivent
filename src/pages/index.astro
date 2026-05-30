@@ -10,6 +10,7 @@ import CallToAction from '~/components/widgets/CallToAction.astro';
 import About from '~/components/widgets/AboutUs.astro';
 import Services from '~/components/widgets/Services.astro';
 import Pricing from '~/components/widgets/Pricing.astro';
+import BookingModal from '~/components/widgets/BookingModal.astro';
 
 const metadata = {
   title: 'SanaDenta — Ordinace dentální hygieny ve Zlíně.',
@@ -121,7 +122,7 @@ const metadata = {
 
   <!-- CallToAction Widget *********** -->
 
-  <!-- <CallToAction
+  <CallToAction
     id="reservation"
     actions={[
       {
@@ -137,12 +138,11 @@ const metadata = {
       Rezervace
     </Fragment>
 
-    <Fragment slot="subtitle">
-      Tlačítko níže je nahovno a je jen placeholder
-    </Fragment>
-  </CallToAction> -->
+  </CallToAction>
 
-  <!-- Features2 Widget ************** -->
+  <BookingModal iframeSrc="https://michal-karafiat.reservio.com" />
+
+  <!-- Features2 Widget **************
 
   <Features2
     id="contact"
