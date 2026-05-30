@@ -46,9 +46,8 @@ const { sectionId = 'reservation', iframeSrc } = Astro.props;
   const iframe   = document.getElementById('booking-iframe');
 
   function openModal() {
-    if (!iframe.src || iframe.src === window.location.href) {
-      iframe.src = iframe.dataset.src;
-    }
+    // Always set src — avoids stale resolved-empty-string comparison
+    iframe.src = iframe.dataset.src;
     modal.classList.remove('hidden');
     modal.classList.add('flex');
     document.body.style.overflow = 'hidden';
@@ -60,14 +59,15 @@ const { sectionId = 'reservation', iframeSrc } = Astro.props;
     document.body.style.overflow = '';
   }
 
-  // Intercept any click inside the target section
+  // Use capture phase so we intercept before the browser processes href/target
   document.getElementById(sectionId)?.addEventListener('click', (e) => {
     const trigger = e.target.closest('a, button');
     if (trigger) {
       e.preventDefault();
+      e.stopPropagation();
       openModal();
     }
-  });
+  }, true);
 
   closeBtn.addEventListener('click', closeModal);
   backdrop.addEventListener('click', closeModal);
