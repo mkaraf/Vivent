@@ -11,6 +11,8 @@ import About from '~/components/widgets/AboutUs.astro';
 import Services from '~/components/widgets/Services.astro';
 import Pricing from '~/components/widgets/Pricing.astro';
 import BookingModal from '~/components/widgets/BookingModal.astro';
+import Contact2 from '~/components/Contact2.astro';
+import Footer2 from '~/components/Footer2.astro';
 
 const metadata = {
   title: 'SanaDenta — Ordinace dentální hygieny ve Zlíně.',
@@ -26,7 +28,7 @@ const metadata = {
       {
         variant: 'primary',
         text: 'Objednat se',
-        href: '#reservation',
+        href: '#contact',
       },
       {
         variant: 'secondary',
@@ -49,9 +51,10 @@ const metadata = {
 
   <Content
     isReversed
+    id="aboutUs"
     eyebrow="O nás"
     title={'Naší prioritou je <span class="italic text-primary-deep">Váš komfort</span>'}
-    subtitle="SanaDenta je nová ordinace dentální hygieny ve Zlíně. Vzniklo s jasnou vizí — věnovat každému pacientovi čas, péči a klidné prostředí, které si zaslouží."
+    subtitle="SanaDenta je nová ordinace dentální hygieny ve Zlíně. Vznikla s jasnou vizí — věnovat každému pacientovi čas, péči a klidné prostředí, které si zaslouží."
     items={[
       {
         title: 'Zářivý úsměv v nové ordinaci dentální hygieny ve Zlíně',
@@ -118,11 +121,19 @@ const metadata = {
 
   <Pricing />
 
+  <!-- <section id="reservation" >
+    <div class="mt-10 flex justify-center">
+      <a href="#rezervace" class="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-base font-semibold text-primary-foreground transition hover:bg-primary-deep hover:-translate-y-px" style="box-shadow: 0 18px 40px -18px oklch(0.48 0.07 145 / 0.6);">
+        Objednat se na vyšetření
+      </a>
+    </div>
+  </section> -->
+
 
 
   <!-- CallToAction Widget *********** -->
 
-  <CallToAction
+  <!-- <CallToAction
     id="reservation"
     actions={[
       {
@@ -137,7 +148,7 @@ const metadata = {
       Rezervace
     </Fragment>
 
-  </CallToAction>
+  </CallToAction> -->
 
   <BookingModal iframeSrc="https://michal-karafiat.reservio.com" />
 
@@ -187,7 +198,7 @@ const metadata = {
   />
 
   <!-- Map Widget ******************** -->
-  <section class="relative not-prose py-8 md:py-12">
+  <!-- <section class="relative not-prose py-8 md:py-12">
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
       <div class="relative w-full rounded-2xl overflow-hidden shadow-lg border-2 border-dh-light-beige" style="aspect-ratio: 16/6;">
         <iframe 
@@ -199,7 +210,7 @@ const metadata = {
         ></iframe>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- FAQs Widget ******************* -->
 
@@ -242,5 +253,7 @@ const metadata = {
       },
     ]}
   /> -->
+
+  <Contact2 />
 
 </Layout>

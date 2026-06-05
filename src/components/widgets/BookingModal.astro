@@ -8,7 +8,7 @@ const { sectionId = 'reservation', iframeSrc } = Astro.props;
 
 <dialog
   id="booking-dialog"
-  class="w-full max-w-3xl rounded-3xl bg-card p-0 shadow-2xl backdrop:bg-foreground/60 backdrop:backdrop-blur-sm"
+  class="m-auto w-full max-w-3xl rounded-3xl bg-card p-0 shadow-2xl backdrop:bg-foreground/60 backdrop:backdrop-blur-sm"
 >
   <div class="flex items-center justify-between border-b border-border/70 px-6 py-4">
     <span class="font-display text-xl text-foreground">Rezervace</span>
@@ -40,7 +40,7 @@ const { sectionId = 'reservation', iframeSrc } = Astro.props;
     const closeBtn = document.getElementById('booking-close');
     const sectionId = _sectionId;
 
-    // Find the CTA button inside the target section and wire it up
+    // Wire up the CTA button inside the target section
     const section = document.getElementById(sectionId);
     const ctaBtn  = section?.querySelector('a, button');
     if (ctaBtn) {
@@ -49,6 +49,14 @@ const { sectionId = 'reservation', iframeSrc } = Astro.props;
         dialog.showModal();
       });
     }
+
+    // Also wire up any element with data-open-booking anywhere on the page
+    document.querySelectorAll('[data-open-booking]').forEach((el) => {
+      el.addEventListener('click', (e) => {
+        e.preventDefault();
+        dialog.showModal();
+      });
+    });
 
     closeBtn?.addEventListener('click', () => dialog.close());
     dialog.addEventListener('click', (e) => {

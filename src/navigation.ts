@@ -16,10 +16,6 @@ export const headerData = {
       text: 'Kontakt',
       href: '#contact',
     },
-    {
-      text: 'FAQ',
-      href: '#faqs',
-    },
   ],
   socialLinks: [
     { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: '#' },

@@ -164,6 +164,13 @@ import { UI } from 'astrowind:config';
     elements: null,
 
     start() {
+      // Disconnect old observer so multiple navigations don't stack observers
+      if (this.observer) {
+        this.observer.disconnect();
+        this.observer = null;
+      }
+      this.animationCounter = 0;
+
       const selectors = [
         '[class*=" intersect:"]',
         '[class*=":intersect:"]',
@@ -239,6 +246,19 @@ import { UI } from 'astrowind:config';
       this.elements.forEach((el) => {
         this.observer.observe(el);
       });
+
+      // Safety-net: if the IntersectionObserver still hasn't revealed
+      // viewport-visible elements after 800ms, force-show them.
+      setTimeout(() => {
+        this.elements.forEach((el) => {
+          if (el.hasAttribute('no-intersect')) {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom >= 0) {
+              el.removeAttribute('no-intersect');
+            }
+          }
+        });
+      }, 800);
     },
 
     /* 
