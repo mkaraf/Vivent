@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  --color-background: oklch(0.955 0.018 75);
+  --color-foreground: oklch(0.28 0.035 50);
+  --color-card: oklch(0.98 0.012 80);
+  --color-primary: oklch(0.62 0.06 145);
+  --color-primary-foreground: oklch(0.98 0.012 80);
+  --color-primary-deep: oklch(0.48 0.07 145);
+  --color-secondary: oklch(0.92 0.025 85);
+  --color-muted-foreground: oklch(0.45 0.03 55);
+  --color-accent: oklch(0.78 0.07 90);
+  --color-border: oklch(0.88 0.022 80);
+}
+
+:root {
+  --shadow-soft: 0 30px 80px -40px oklch(0.35 0.05 50 / 0.35);
+  --shadow-blob: 0 40px 100px -30px oklch(0.48 0.07 145 / 0.35);
+}
+
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 { font-family: var(--font-serif); letter-spacing: -0.01em; }
+}
+
+@layer utilities {
+  .hero-blob {
+    border-radius: 62% 38% 55% 45% / 48% 55% 45% 52%;
+    box-shadow: var(--shadow-blob);
+  }
+  .grain { position: relative; }
+  .grain::after {
+    content: "";
+    position: absolute; inset: 0; pointer-events: none;
+    background-image: radial-gradient(oklch(0.3 0.04 50 / 0.04) 1px, transparent 1px);
+    background-size: 3px 3px;
+    mix-blend-mode: multiply;
+  }
+}

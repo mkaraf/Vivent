@@ -1,0 +1,40 @@
+---
+import SectionHeading from './SectionHeading.astro';
+const PRICES = [
+  { name: "Vstupní vyšetření", price: "xyz Kč", note: "60 min · vč. konzultace" },
+  { name: "Dentální hygiena", price: "xyz Kč", note: "60 min" },
+  { name: "Recall (opakovaná hygiena)", price: "xyz Kč", note: "45 min" },
+  { name: "Hloubkové čištění", price: "od xyz Kč", note: "dle rozsahu" },
+  { name: "Bělení zubů", price: "xyz Kč", note: "ordinační bělení" },
+];
+---
+<section id="cenik" class="relative scroll-mt-24 py-20 md:py-28">
+  <div class="mx-auto max-w-7xl px-5 md:px-8">
+    <SectionHeading
+      eyebrow="Ceník"
+      title={'Transparentní <span class="italic text-primary-deep">ceny</span>'}
+      intro="Orientační ceník našich služeb. Konečná cena je vždy stanovena po vstupním vyšetření podle individuálních potřeb."
+    />
+    <div class="mx-auto mt-14 max-w-3xl overflow-hidden rounded-3xl border border-border/70 bg-card" style="box-shadow: var(--shadow-soft);">
+      <ul class="divide-y divide-border/70">
+        {PRICES.map((p) => (
+          <li class="flex flex-wrap items-center justify-between gap-3 px-6 py-5 transition hover:bg-secondary/40 md:px-8 md:py-6">
+            <div>
+              <div class="font-serif text-xl text-foreground md:text-2xl">{p.name}</div>
+              <div class="mt-1 text-xs uppercase tracking-wider text-muted-foreground">{p.note}</div>
+            </div>
+            <div class="font-serif text-2xl text-primary-deep md:text-3xl">{p.price}</div>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <p class="mx-auto mt-6 max-w-2xl text-center text-sm text-muted-foreground">
+      Platba v hotovosti i kartou. Ceník je orientační — ceny jsou pouze ukázkové a budou upřesněny dle skutečné nabídky studia.
+    </p>
+    <div class="mt-10 flex justify-center">
+      <a href="#rezervace" class="inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-base font-semibold text-primary-foreground transition hover:bg-primary-deep hover:-translate-y-px" style="box-shadow: 0 18px 40px -18px oklch(0.48 0.07 145 / 0.6);">
+        Objednat se na vyšetření
+      </a>
+    </div>
+  </div>
+</section>

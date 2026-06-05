@@ -1,0 +1,62 @@
+---
+import { Icon } from 'astro-icon/components';
+const NAV = [
+  { label: "O nás", href: "#o-nas" },
+  { label: "Služby", href: "#sluzby" },
+  { label: "Ceník", href: "#cenik" },
+  { label: "Rezervace", href: "#rezervace" },
+  { label: "Kontakt", href: "#kontakt" },
+  { label: "FAQ", href: "#faq" },
+];
+---
+<header class="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur-md">
+  <div class="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-4 md:px-8 md:py-5">
+    <a href="/" class="flex items-center gap-3">
+      <img src="/assets/logo-tooth.png" alt="" width="56" height="56" class="h-12 w-12 md:h-14 md:w-14 object-contain mix-blend-multiply" />
+      <div class="flex flex-col leading-none">
+        <span class="font-serif text-2xl md:text-[28px] font-semibold tracking-tight">
+          <span class="text-foreground">Sana</span><span class="text-primary-deep">Denta</span>
+        </span>
+        <span class="mt-1 text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+          Dentální studio · Zlín
+        </span>
+      </div>
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-1">
+      {NAV.map((n) => (
+        <a href={n.href} class="relative px-3.5 py-2 text-[15px] font-medium text-foreground/80 transition-colors hover:text-primary-deep">{n.label}</a>
+      ))}
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <div class="hidden md:flex items-center gap-1">
+        <a href="#" aria-label="Instagram" class="grid h-10 w-10 place-items-center rounded-full text-foreground/70 transition hover:bg-secondary hover:text-primary-deep">
+          <Icon name="lucide:instagram" class="h-[18px] w-[18px]" />
+        </a>
+        <a href="#" aria-label="Facebook" class="grid h-10 w-10 place-items-center rounded-full text-foreground/70 transition hover:bg-secondary hover:text-primary-deep">
+          <Icon name="lucide:facebook" class="h-[18px] w-[18px]" />
+        </a>
+      </div>
+      <a href="#rezervace" class="hidden md:inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm transition hover:bg-primary-deep">
+        Objednat se
+      </a>
+      <button id="menu-toggle" class="lg:hidden grid h-10 w-10 place-items-center rounded-full text-foreground/80 hover:bg-secondary" aria-label="Menu">
+        <Icon name="lucide:menu" class="h-5 w-5" />
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="hidden lg:hidden border-t border-border/60 bg-background">
+    <nav class="mx-auto flex max-w-7xl flex-col px-5 py-3">
+      {NAV.map((n) => (
+        <a href={n.href} class="py-3 text-base font-medium text-foreground/85 hover:text-primary-deep">{n.label}</a>
+      ))}
+    </nav>
+  </div>
+</header>
+<script>
+  const btn = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  btn?.addEventListener('click', () => menu?.classList.toggle('hidden'));
+  menu?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.add('hidden')));
+</script>
