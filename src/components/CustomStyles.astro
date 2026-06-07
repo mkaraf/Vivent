@@ -8,41 +8,43 @@ import '@fontsource-variable/inter';
 
 <style is:inline>
   :root {
-    --shadow-soft: 0 30px 80px -40px oklch(0.35 0.05 50 / 0.35);
-    --shadow-blob: 0 40px 100px -30px oklch(0.48 0.07 145 / 0.35);
+    --shadow-soft: 0 30px 80px -40px oklch(0.35 0.08 145 / 0.25);
+    --shadow-blob: 0 40px 100px -30px oklch(0.52 0.14 145 / 0.28);
 
     --aw-font-sans: 'Inter Variable';
     --aw-font-serif: 'Inter Variable';
     --aw-font-heading: 'Inter Variable';
 
-    /* Template design system */
-    --color-background: oklch(0.962 0.018 75);
-    --color-foreground: oklch(0.28 0.04 60);
-    --color-card: oklch(0.975 0.014 80);
-    --color-primary: oklch(0.58 0.07 140);
-    --color-primary-foreground: oklch(0.98 0.01 80);
-    --color-muted-foreground: oklch(0.48 0.04 60);
-    --color-accent: oklch(0.72 0.12 70);
-    --color-sage: oklch(0.68 0.06 140);
-    --color-sage-deep: oklch(0.45 0.06 140);
-    --color-border: oklch(0.88 0.02 75);
+    /* Premium wellness palette — warm white + gold + forest green */
+    --color-background: oklch(0.983 0.010 88);
+    --color-foreground: oklch(0.20 0.025 60);
+    --color-card: oklch(0.997 0.006 90);
+    --color-primary: oklch(0.48 0.12 145);
+    --color-primary-foreground: oklch(0.99 0.005 90);
+    --color-primary-deep: oklch(0.36 0.10 145);
+    --color-muted-foreground: oklch(0.50 0.030 70);
+    --color-accent: oklch(0.70 0.10 80);
+    --color-gold: oklch(0.72 0.10 80);
+    --color-gold-deep: oklch(0.58 0.10 70);
+    --color-sage: oklch(0.68 0.07 145);
+    --color-sage-deep: oklch(0.44 0.09 145);
+    --color-border: oklch(0.90 0.018 85);
+    --color-secondary: oklch(0.96 0.018 85);
 
-    --color-primary-deep: oklch(0.42 0.07 140);
-    --color-secondary: oklch(0.90 0.022 80);
+    --aw-color-primary: oklch(0.48 0.12 145);
+    --aw-color-secondary: oklch(0.72 0.08 145);
+    --aw-color-accent: oklch(0.70 0.10 80);
 
-    --aw-color-primary: #7C8B67; /* dh-dark-green */
-    --aw-color-secondary: #AEC790; /* dh-light-green */
-    --aw-color-accent: #A18260; /* dh-soft-brown */
+    --aw-color-text-heading: oklch(0.20 0.025 60);
+    --aw-color-text-default: oklch(0.20 0.025 60);
+    --aw-color-text-muted: oklch(0.50 0.030 70 / 0.80);
+    --aw-color-bg-page: oklch(0.983 0.010 88);
 
-    --aw-color-text-heading: #5A4232; /* dh-text-brown */
-    --aw-color-text-default: #5A4232; /* dh-text-brown */
-    --aw-color-text-muted: rgba(90, 66, 50, 0.66); /* dh-text-brown with opacity */
-    --aw-color-bg-page: #F5EDE1; /* dh-cream */
-
-    --aw-color-bg-page-dark: #5A4232; /* dh-text-brown */
+    --aw-color-bg-page-dark: oklch(0.20 0.025 60);
 
     ::selection {
-      background-color: #EADDCB; /* dh-light-beige */
+      background-color: oklch(0.88 0.07 80);
+      color: oklch(0.20 0.025 60);
     }
   }
 

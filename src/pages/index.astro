@@ -8,6 +8,7 @@ import Content from '~/components/widgets/Content.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 import About from '~/components/widgets/AboutUs.astro';
+import OurTeam from '~/components/widgets/OurTeam.astro';
 import Services from '~/components/widgets/Services.astro';
 import Pricing from '~/components/widgets/Pricing.astro';
 import BookingModal from '~/components/widgets/BookingModal.astro';
@@ -15,7 +16,7 @@ import Contact2 from '~/components/Contact2.astro';
 import Footer2 from '~/components/Footer2.astro';
 
 const metadata = {
-  title: 'SanaDenta — Ordinace dentální hygieny ve Zlíně.',
+  title: 'SanaDenta — Ordinace dentální hygieny ve Zlíně-Malenovicích.',
   ignoreTitleTemplate: true,
 };
 ---
@@ -38,7 +39,7 @@ const metadata = {
     ]}
   >
     <Fragment slot="title">
-      Dentální hygiena<br /><span>ve Zlíně</span>
+      Dentální hygiena<br /><span>Zlín-Malenovice</span>
     </Fragment>
     <Fragment slot="subtitle">
       Profesionální péče pro Váš krásný úsměv.
@@ -54,12 +55,12 @@ const metadata = {
     id="aboutUs"
     eyebrow="O nás"
     title={'Naší prioritou je <span class="italic text-primary-deep">Váš komfort</span>'}
-    subtitle="SanaDenta je nová ordinace dentální hygieny ve Zlíně. Vznikla s jasnou vizí — věnovat každému pacientovi čas, péči a klidné prostředí, které si zaslouží."
+    subtitle="SanaDenta je nová ordinace dentální hygieny v Malenovicích. Vznikla s jasnou vizí — věnovat každému pacientovi čas, péči a klidné prostředí, které si zaslouží."
     items={[
       {
-        title: 'Zářivý úsměv v nové ordinaci dentální hygieny ve Zlíně',
+        title: 'Zářivý úsměv v nové ordinaci dentální hygieny',
         description:
-          'Zakládáme si na tom, abychom pro vás byli snadno dostupní. Vytvořili jsme moderní a útulnou ordinaci, která je lehce dostupná a kam se budete rádi vracet.',
+          'Zakládáme si na tom, abychom pro vás byli snadno dostupní. Vytvořili jsme moderní a útulnou ordinaci, která je jednoduše dostupná a kam se budete rádi vracet.',
       },
       {
         title: 'Šetrný a bezbolestný přístup bez stresu',
@@ -69,7 +70,7 @@ const metadata = {
       {
         title: 'Individuální péče přesně na míru',
         description:
-          'Každý úsměv je jiný a vyžaduje jinou péči. Nenasazujeme univerzální postupy. Vyslechneme si vás, zhodnotíme stav vašich zubů a dásní a navrhneme plán i pomůcky, které budou vyhovovat přesně vašim potřebám.',
+          'Každý pacient je jiný a vyžaduje jinou péči. Nenasazujeme univerzální postupy. Vyslechneme si vás, zhodnotíme stav vašich zubů a dásní a navrhneme plán i pomůcky, které budou vyhovovat přesně vašim potřebám.',
       },
     ]}
     image={{
@@ -112,7 +113,11 @@ const metadata = {
   </Content>
 
   
- <!-- Services Widget **************** -->
+ <!-- OurTeam Widget **************** -->
+
+  <OurTeam />
+
+  <!-- Services Widget **************** -->
 
   <Services />
 

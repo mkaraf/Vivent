@@ -14,13 +14,13 @@
   --color-muted: var(--aw-color-text-muted);
 
   /* Design-system tokens (mirrors CustomStyles.astro :root) */
-  --color-foreground: oklch(0.28 0.04 60);
-  --color-background: oklch(0.962 0.018 75);
-  --color-card: oklch(0.975 0.014 80);
-  --color-primary-deep: oklch(0.42 0.07 140);
-  --color-primary-foreground: oklch(0.98 0.01 80);
-  --color-muted-foreground: oklch(0.48 0.04 60);
-  --color-border: oklch(0.88 0.02 75);
+  --color-foreground: oklch(0.20 0.025 60);
+  --color-background: oklch(0.983 0.010 88);
+  --color-card: oklch(0.997 0.006 90);
+  --color-primary-deep: oklch(0.36 0.10 145);
+  --color-primary-foreground: oklch(0.99 0.005 90);
+  --color-muted-foreground: oklch(0.50 0.030 70);
+  --color-border: oklch(0.90 0.018 85);
 
   --color-dh-cream: #F5EDE1;
   --color-dh-light-beige: #EADDCB;
