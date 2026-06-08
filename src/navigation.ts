@@ -5,6 +5,10 @@ export const headerData = {
       href: '#aboutUs',
     },
     {
+      text: 'Náš tým',
+      href: '#ourTeam',
+    },
+    {
       text: 'Služby',
       href: '#services',
     },
