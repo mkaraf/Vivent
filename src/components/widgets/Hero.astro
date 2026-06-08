@@ -18,7 +18,7 @@ const VALUES = [
 ];
 ---
 
-<section class="relative overflow-hidden grain not-prose" {...id ? { id } : {}}>
+<section class="relative overflow-hidden not-prose" {...id ? { id } : {}}>
   <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
     <slot name="bg">
       {bg ? <Fragment set:html={bg} /> : null}
@@ -45,7 +45,7 @@ const VALUES = [
           <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75"></span>
           <span class="relative inline-flex h-2 w-2 rounded-full bg-green-500"></span>
         </span>
-        Nově přijímáme pacienty
+        Přijímáme nové pacienty
       </div>
 
       {title && (
@@ -115,7 +115,7 @@ const VALUES = [
       <div class="hero-blob relative overflow-hidden bg-(--color-card)">
         <Image
           src={heroDefaultImg}
-          alt="Klidná atmosféra dentálního studia SanaDenta ve Zlíně"
+          alt="Klidná atmosféra dentálního studia SanaDenta ve Zlíně-Malenovicích"
           width={1024}
           height={1024}
           loading="eager"
