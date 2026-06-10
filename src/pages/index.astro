@@ -2,18 +2,12 @@
 import Layout from '~/layouts/PageLayout.astro';
 
 import Hero from '~/components/widgets/Hero.astro';
-import Features from '~/components/widgets/Features.astro';
-import Features2 from '~/components/widgets/Features2.astro';
 import Content from '~/components/widgets/Content.astro';
-import FAQs from '~/components/widgets/FAQs.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
-import About from '~/components/widgets/AboutUs.astro';
 import OurTeam from '~/components/widgets/OurTeam.astro';
 import Services from '~/components/widgets/Services.astro';
 import Pricing from '~/components/widgets/Pricing.astro';
 import BookingModal from '~/components/widgets/BookingModal.astro';
 import Contact2 from '~/components/Contact2.astro';
-import Footer2 from '~/components/Footer2.astro';
 
 const metadata = {
   title: 'SanaDenta — Ordinace dentální hygieny ve Zlíně-Malenovicích.',
@@ -41,14 +35,12 @@ const metadata = {
     <Fragment slot="title">
       Dentální hygiena<br /><span>Zlín-Malenovice</span>
     </Fragment>
-    <Fragment slot="subtitle">
-      Profesionální péče pro Váš krásný úsměv.
-    </Fragment>
+    <Fragment slot="subtitle"> Profesionální péče pro Váš krásný úsměv. </Fragment>
   </Hero>
 
-    <!-- <About /> -->
+  <!-- <About /> -->
 
-   <!-- Content Widget **************** -->
+  <!-- Content Widget **************** -->
 
   <Content
     isReversed
@@ -77,8 +69,7 @@ const metadata = {
       src: '~/assets/images/person.png',
       alt: 'Colorful Image',
     }}
-  >
-  </Content>
+  />
 
   <!-- Content Widget **************** -->
 
@@ -96,8 +87,7 @@ const metadata = {
       },
       {
         title: 'Přátelská a uvolněná atmosféra',
-        description:
-          "Úsměv, dobrá nálada a dostatek času na každého pacienta jsou u nás naprostou samozřejmostí.",
+        description: 'Úsměv, dobrá nálada a dostatek času na každého pacienta jsou u nás naprostou samozřejmostí.',
       },
       {
         title: 'Zdravé zuby jsou naší vášní',
@@ -109,11 +99,9 @@ const metadata = {
       src: '~/assets/images/lab.png',
       alt: 'Blueprint Image',
     }}
-  >
-  </Content>
+  />
 
-  
- <!-- OurTeam Widget **************** -->
+  <!-- OurTeam Widget **************** -->
 
   <OurTeam />
 
@@ -132,8 +120,6 @@ const metadata = {
       </a>
     </div>
   </section> -->
-
-
 
   <!-- CallToAction Widget *********** -->
 
@@ -259,5 +245,4 @@ const metadata = {
   /> -->
 
   <Contact2 />
-
 </Layout>

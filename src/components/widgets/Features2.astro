@@ -20,9 +20,7 @@ const {
 ---
 
 <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
-  {(title || subtitle) && (
-    <SectionHeading eyebrow={tagline ?? ''} title={title ?? ''} intro={subtitle} />
-  )}
+  {(title || subtitle) && <SectionHeading eyebrow={tagline ?? ''} title={title ?? ''} intro={subtitle} />}
   <ItemGrid2
     items={items}
     columns={columns}

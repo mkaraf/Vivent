@@ -16,6 +16,7 @@ const HOURS = [
   { day: 'Sobota – Neděle', time: 'Zavřeno' },
 ];
 ---
+
 <section id="contact" class="relative py-24 md:py-32">
   <div class="mx-auto max-w-7xl px-6">
     <SectionHeading
@@ -32,21 +33,30 @@ const HOURS = [
             <h3 class="font-serif text-xl text-foreground">Otevírací doba</h3>
           </div>
           <ul class="mt-4 divide-y divide-border">
-            {HOURS.map(({ day, time }) => (
-              <li class="flex items-center justify-between py-3 text-sm">
-                <span class="text-foreground">{day}</span>
-                <span class="font-medium text-muted-foreground">{time}</span>
-              </li>
-            ))}
+            {
+              HOURS.map(({ day, time }) => (
+                <li class="flex items-center justify-between py-3 text-sm">
+                  <span class="text-foreground">{day}</span>
+                  <span class="font-medium text-muted-foreground">{time}</span>
+                </li>
+              ))
+            }
           </ul>
-          <a href="#" data-open-booking class="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition hover:bg-primary-deep">
+          <a
+            href="#"
+            data-open-booking
+            class="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition hover:bg-primary-deep"
+          >
             Rezervovat si termín
             <Icon name="tabler:arrow-right" class="h-4 w-4" />
           </a>
         </div>
 
         <div class="space-y-4">
-          <a href={CONTACT.phoneHref} class="group flex items-center gap-4 rounded-2xl border border-border bg-card p-5 transition hover:border-primary/40 hover:shadow-md">
+          <a
+            href={CONTACT.phoneHref}
+            class="group flex items-center gap-4 rounded-2xl border border-border bg-card p-5 transition hover:border-primary/40 hover:shadow-md"
+          >
             <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary-deep">
               <Icon name="tabler:phone" class="h-5 w-5" />
             </span>
@@ -54,10 +64,16 @@ const HOURS = [
               <span class="block text-xs uppercase tracking-[0.18em] text-muted-foreground">Telefon</span>
               <span class="block text-lg font-medium text-foreground">{CONTACT.phone}</span>
             </span>
-            <Icon name="tabler:arrow-right" class="h-4 w-4 text-muted-foreground transition group-hover:translate-x-1 group-hover:text-primary-deep" />
+            <Icon
+              name="tabler:arrow-right"
+              class="h-4 w-4 text-muted-foreground transition group-hover:translate-x-1 group-hover:text-primary-deep"
+            />
           </a>
 
-          <a href={`mailto:${CONTACT.email}`} class="group flex items-center gap-4 rounded-2xl border border-border bg-card p-5 transition hover:border-primary/40 hover:shadow-md">
+          <a
+            href={`mailto:${CONTACT.email}`}
+            class="group flex items-center gap-4 rounded-2xl border border-border bg-card p-5 transition hover:border-primary/40 hover:shadow-md"
+          >
             <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary-deep">
               <Icon name="tabler:mail" class="h-5 w-5" />
             </span>
@@ -65,10 +81,18 @@ const HOURS = [
               <span class="block text-xs uppercase tracking-[0.18em] text-muted-foreground">E-mail</span>
               <span class="block text-lg font-medium text-foreground">{CONTACT.email}</span>
             </span>
-            <Icon name="tabler:arrow-right" class="h-4 w-4 text-muted-foreground transition group-hover:translate-x-1 group-hover:text-primary-deep" />
+            <Icon
+              name="tabler:arrow-right"
+              class="h-4 w-4 text-muted-foreground transition group-hover:translate-x-1 group-hover:text-primary-deep"
+            />
           </a>
 
-          <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(CONTACT.mapsQuery)}`} target="_blank" rel="noopener" class="group flex items-center gap-4 rounded-2xl border border-border bg-card p-5 transition hover:border-primary/40 hover:shadow-md">
+          <a
+            href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(CONTACT.mapsQuery)}`}
+            target="_blank"
+            rel="noopener"
+            class="group flex items-center gap-4 rounded-2xl border border-border bg-card p-5 transition hover:border-primary/40 hover:shadow-md"
+          >
             <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary-deep">
               <Icon name="tabler:map-pin" class="h-5 w-5" />
             </span>
@@ -76,7 +100,10 @@ const HOURS = [
               <span class="block text-xs uppercase tracking-[0.18em] text-muted-foreground">Adresa</span>
               <span class="block text-lg font-medium text-foreground">{CONTACT.address}</span>
             </span>
-            <Icon name="tabler:arrow-right" class="h-4 w-4 text-muted-foreground transition group-hover:translate-x-1 group-hover:text-primary-deep" />
+            <Icon
+              name="tabler:arrow-right"
+              class="h-4 w-4 text-muted-foreground transition group-hover:translate-x-1 group-hover:text-primary-deep"
+            />
           </a>
         </div>
 
@@ -93,8 +120,7 @@ const HOURS = [
           allowfullscreen
           class="h-full w-full"
           style="border:0; min-height:480px;"
-          referrerpolicy="no-referrer-when-downgrade"
-        ></iframe>
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   </div>

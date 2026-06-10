@@ -10,7 +10,6 @@ const {
   eyebrow = await Astro.slots.render('eyebrow'),
   title = await Astro.slots.render('title'),
   subtitle = await Astro.slots.render('subtitle'),
-  tagline,
   content = await Astro.slots.render('content'),
   callToAction,
   items = [],
@@ -32,14 +31,8 @@ const {
   containerClass={`max-w-7xl mx-auto ${isAfterContent ? 'pt-0 md:pt-0 lg:pt-0' : ''} ${classes?.container ?? ''}`}
   bg={bg}
 >
-  {(title || eyebrow || subtitle) && (
-    <SectionHeading
-      eyebrow={eyebrow ?? ''}
-      title={title ?? ''}
-      intro={subtitle}
-    />
-  )}
-  <div class={`mx-auto max-w-7xl p-4 md:px-8 ${(title || eyebrow || subtitle) ? 'mt-12 md:mt-16' : ''}`}>
+  {(title || eyebrow || subtitle) && <SectionHeading eyebrow={eyebrow ?? ''} title={title ?? ''} intro={subtitle} />}
+  <div class={`mx-auto max-w-7xl p-4 md:px-8 ${title || eyebrow || subtitle ? 'mt-12 md:mt-16' : ''}`}>
     <div class={`md:flex ${isReversed ? 'md:flex-row-reverse' : ''} md:gap-16`}>
       <div class="md:basis-1/2 self-center">
         {content && <div class="mb-12 text-lg dark:text-slate-400" set:html={content} />}

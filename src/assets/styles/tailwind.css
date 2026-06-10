@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 @plugin "@tailwindcss/typography";
 
 @custom-variant intersect (&:not([no-intersect]));
@@ -15,25 +15,25 @@
 
   /* Design-system tokens (mirrors CustomStyles.astro :root) */
   --color-foreground: oklch(0.15 0.015 50);
-  --color-background: oklch(0.983 0.010 88);
+  --color-background: oklch(0.983 0.01 88);
   --color-card: oklch(0.997 0.006 90);
   --color-primary-deep: oklch(0.62 0.09 83);
   --color-primary-foreground: oklch(0.99 0.005 90);
-  --color-muted-foreground: oklch(0.50 0.030 70);
-  --color-border: oklch(0.90 0.018 85);
+  --color-muted-foreground: oklch(0.5 0.03 70);
+  --color-border: oklch(0.9 0.018 85);
 
-  --color-dh-cream: #F5EDE1;
-  --color-dh-light-beige: #EADDCB;
-  --color-dh-light-green: #AEC790;
-  --color-dh-dark-green: #7C8B67;
-  --color-dh-soft-brown: #A18260;
-  --color-dh-text-brown: #5A4232;
+  --color-dh-cream: #f5ede1;
+  --color-dh-light-beige: #eaddcb;
+  --color-dh-light-green: #aec790;
+  --color-dh-dark-green: #7c8b67;
+  --color-dh-soft-brown: #a18260;
+  --color-dh-text-brown: #5a4232;
 
   /* Fonts */
   --font-sans: var(--aw-font-sans, ui-sans-serif), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--aw-font-serif, ui-serif), ui-serif, Georgia, serif;
   --font-heading: var(--aw-font-heading, ui-sans-serif), ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Playfair Display", Georgia, serif;
+  --font-display: 'Playfair Display', Georgia, serif;
 
   /* Animations */
   --animate-fade: fadeInUp 1000ms both;
@@ -43,23 +43,45 @@
 }
 
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(2rem); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes float-slow {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-12px) rotate(0.5deg); }
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(0.5deg);
+  }
 }
 
 @keyframes fade-up {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes shimmer {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 0.8; }
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
 }
 
 @layer utilities {
@@ -69,7 +91,7 @@
   }
 
   .grain::after {
-    content: "";
+    content: '';
     position: absolute;
     inset: 0;
     pointer-events: none;

@@ -25,11 +25,12 @@ const { links = [], socialLinks = [], isSticky = false } = Astro.props;
   ]}
 >
   <div class="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-4 md:px-8 md:py-5">
-
     <a href={getHomePermalink()} class="flex items-center gap-3">
       <div class="flex flex-col leading-none">
         <span class="font-serif text-2xl md:text-[28px] font-semibold tracking-tight">
-          <span style="color: var(--color-foreground);">Sana</span><span style="color: var(--color-primary-deep);">Denta</span>
+          <span style="color: var(--color-foreground);">Sana</span><span style="color: var(--color-primary-deep);"
+            >Denta</span
+          >
         </span>
         <span class="mt-1 text-[11px] uppercase tracking-[0.22em]" style="color: var(--color-muted-foreground);">
           Dentální hygiena
@@ -38,30 +39,34 @@ const { links = [], socialLinks = [], isSticky = false } = Astro.props;
     </a>
 
     <nav class="hidden lg:flex items-center gap-1">
-      {links.map((link) => (
-        <a
-          href={link.href}
-          class="px-3.5 py-2 text-[15px] font-medium text-(--color-foreground)/80 transition-colors hover:text-(--color-primary-deep)"
-        >
-          {link.text}
-        </a>
-      ))}
+      {
+        links.map((link) => (
+          <a
+            href={link.href}
+            class="px-3.5 py-2 text-[15px] font-medium text-(--color-foreground)/80 transition-colors hover:text-(--color-primary-deep)"
+          >
+            {link.text}
+          </a>
+        ))
+      }
     </nav>
 
     <div class="flex items-center gap-2">
-      {socialLinks?.length ? (
-        <div class="hidden md:flex items-center gap-1">
-          {socialLinks.map(({ ariaLabel, icon, href }) => (
-            <a
-              href={href}
-              aria-label={ariaLabel}
-              class="grid h-10 w-10 place-items-center rounded-full text-(--color-foreground)/70 transition hover:bg-(--color-secondary) hover:text-(--color-primary-deep)"
-            >
-              <Icon name={icon as string} class="w-[18px] h-[18px]" />
-            </a>
-          ))}
-        </div>
-      ) : null}
+      {
+        socialLinks?.length ? (
+          <div class="hidden md:flex items-center gap-1">
+            {socialLinks.map(({ ariaLabel, icon, href }) => (
+              <a
+                href={href}
+                aria-label={ariaLabel}
+                class="grid h-10 w-10 place-items-center rounded-full text-(--color-foreground)/70 transition hover:bg-(--color-secondary) hover:text-(--color-primary-deep)"
+              >
+                <Icon name={icon as string} class="w-[18px] h-[18px]" />
+              </a>
+            ))}
+          </div>
+        ) : null
+      }
 
       <a
         href="#contact"
@@ -76,10 +81,19 @@ const { links = [], socialLinks = [], isSticky = false } = Astro.props;
         aria-label="Menu"
         aria-expanded="false"
       >
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="4" y1="6" x2="20" y2="6"/>
-          <line x1="4" y1="12" x2="20" y2="12"/>
-          <line x1="4" y1="18" x2="20" y2="18"/>
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <line x1="4" y1="6" x2="20" y2="6"></line>
+          <line x1="4" y1="12" x2="20" y2="12"></line>
+          <line x1="4" y1="18" x2="20" y2="18"></line>
         </svg>
       </button>
     </div>
@@ -87,14 +101,16 @@ const { links = [], socialLinks = [], isSticky = false } = Astro.props;
 
   <div id="mobile-nav" class="hidden lg:hidden border-t border-(--color-border)/60 bg-(--color-background)">
     <nav class="mx-auto flex max-w-7xl flex-col px-5 py-3">
-      {links.map((link) => (
-        <a
-          href={link.href}
-          class="py-3 text-base font-medium text-(--color-foreground)/85 transition-colors hover:text-(--color-primary-deep)"
-        >
-          {link.text}
-        </a>
-      ))}
+      {
+        links.map((link) => (
+          <a
+            href={link.href}
+            class="py-3 text-base font-medium text-(--color-foreground)/85 transition-colors hover:text-(--color-primary-deep)"
+          >
+            {link.text}
+          </a>
+        ))
+      }
     </nav>
   </div>
 </header>

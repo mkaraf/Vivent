@@ -5,9 +5,11 @@ Landing page převedená z TanStack Start do Astro.
 ## Instalace do existujícího projektu
 
 1. Ujisti se, že máš nainstalovaný Tailwind CSS v4 přes oficiální Astro integraci:
+
    ```bash
    npx astro add tailwind
    ```
+
    (vybere `@tailwindcss/vite` plugin pro v4)
 
 2. Zkopíruj obsah těchto složek do svého projektu:
@@ -26,6 +28,7 @@ Landing page převedená z TanStack Start do Astro.
 5. Ikony jsou inline SVG (žádná závislost na `lucide-react`).
 
 ## Spuštění
+
 ```bash
 npm run dev
 ```

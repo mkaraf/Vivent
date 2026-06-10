@@ -269,6 +269,7 @@ export interface Steps extends Omit<Headline, 'classes'>, Widget {
 }
 
 export interface Content extends Omit<Headline, 'classes'>, Widget {
+  eyebrow?: string;
   content?: string;
   image?: string | unknown;
   items?: Array<Item>;

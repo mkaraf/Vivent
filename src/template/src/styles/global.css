@@ -1,8 +1,8 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
-  --font-serif: "Cormorant Garamond", Georgia, serif;
-  --font-sans: "Inter", system-ui, sans-serif;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
 
   --color-background: oklch(0.955 0.018 75);
   --color-foreground: oklch(0.28 0.035 50);
@@ -28,7 +28,12 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
   }
-  h1, h2, h3 { font-family: var(--font-serif); letter-spacing: -0.01em; }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-serif);
+    letter-spacing: -0.01em;
+  }
 }
 
 @layer utilities {
@@ -36,10 +41,14 @@
     border-radius: 62% 38% 55% 45% / 48% 55% 45% 52%;
     box-shadow: var(--shadow-blob);
   }
-  .grain { position: relative; }
+  .grain {
+    position: relative;
+  }
   .grain::after {
-    content: "";
-    position: absolute; inset: 0; pointer-events: none;
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
     background-image: radial-gradient(oklch(0.3 0.04 50 / 0.04) 1px, transparent 1px);
     background-size: 3px 3px;
     mix-blend-mode: multiply;
