@@ -7,7 +7,7 @@ import OurTeam from '~/components/widgets/OurTeam.astro';
 import Services from '~/components/widgets/Services.astro';
 import Pricing from '~/components/widgets/Pricing.astro';
 import BookingModal from '~/components/widgets/BookingModal.astro';
-import Contact2 from '~/components/Contact2.astro';
+import Contact from '~/components/Contact.astro';
 
 const metadata = {
   title: 'SanaDenta — Ordinace dentální hygieny ve Zlíně-Malenovicích.',
@@ -103,7 +103,7 @@ const metadata = {
 
   <!-- OurTeam Widget **************** -->
 
-  <OurTeam />
+  <!-- <OurTeam /> -->
 
   <!-- Services Widget **************** -->
 
@@ -142,107 +142,7 @@ const metadata = {
 
   <BookingModal iframeSrc="https://michal-karafiat.reservio.com" />
 
-  <!-- Features2 Widget **************
 
-  <Features2
-    id="contact"
-    title="We are here to help!"
-    columns={4}
-    items={[
-        {
-        title: 'Otevírací doba',
-        description: `
-          <div class="space-y-2 text-left">
-            <div class="flex justify-between">
-              <span>Po-Čt:</span>
-              <span class="font-semibold">8:00 - 16:00</span>
-            </div>
-            <div class="flex justify-between">
-              <span>Pá:</span>
-              <span class="font-semibold">8:00 - 14:00</span>
-            </div>
-            <div class="flex justify-between text-muted">
-              <span>So-Ne:</span>
-              <span class="font-semibold">Zavřeno</span>
-            </div>
-          </div>
-        `,
-        icon: 'tabler:clock',
-      },
-      {
-        title: 'Phone',
-        description: '+1 (234) 567-890',
-        icon: 'tabler:headset',
-      },
-      {
-        title: 'Email',
-        description: 'contact@support.com',
-        icon: 'tabler:mail',
-      },
-      {
-        title: 'Location',
-        description: 'Zelinova 7012, 760 05 Zlín 5',
-        icon: 'tabler:map-pin',
-      },
-    ]}
-  />
 
-  <!-- Map Widget ******************** -->
-  <!-- <section class="relative not-prose py-8 md:py-12">
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="relative w-full rounded-2xl overflow-hidden shadow-lg border-2 border-dh-light-beige" style="aspect-ratio: 16/6;">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1095.188720205742!2d17.6706285939571!3d49.2420452009725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471374ad7a67da07%3A0xc350c5fb28dd11f8!2sZelinova%2C%20760%2005%20Zl%C3%ADn%205!5e0!3m2!1scs!2scz!4v1767952779000!5m2!1scs!2scz" 
-          style="border:0; width: 100%; height: 100%; position: absolute; top: 0; left: 0;" 
-          allowfullscreen="" 
-          loading="lazy" 
-          referrerpolicy="no-referrer-when-downgrade"
-        ></iframe>
-      </div>
-    </div>
-  </section> -->
-
-  <!-- FAQs Widget ******************* -->
-
-  <!-- <FAQs
-    id="faqs"
-    title="Frequently Asked Questions"
-    subtitle="Dive into the following questions to gain insights into the powerful features that AstroWind offers and how it can elevate your web development journey."
-    tagline="FAQs"
-    classes={{ container: 'max-w-6xl' }}
-    items={[
-      {
-        title: 'Why AstroWind?',
-        description:
-          "Michael Knight a young loner on a crusade to champion the cause of the innocent. The helpless. The powerless in a world of criminals who operate above the law. Here he comes Here comes Speed Racer. He's a demon on wheels.",
-      },
-      {
-        title: 'What do I need to start?',
-        description:
-          'Space, the final frontier. These are the voyages of the Starship Enterprise. Its five-year mission: to explore strange new worlds. Many say exploration is part of our destiny, but it’s actually our duty to future generations.',
-      },
-      {
-        title: 'How to install the Astro + Tailwind CSS template?',
-        description:
-          "Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows.",
-      },
-      {
-        title: "What's something that you don't understand?",
-        description:
-          "A flower in my garden, a mystery in my panties. Heart attack never stopped old Big Bear. I didn't even know we were calling him Big Bear.",
-      },
-      {
-        title: 'What is something that you would like to try again?',
-        description:
-          "A business big enough that it could be listed on the NASDAQ goes belly up. Disappears! It ceases to exist without me. No, you clearly don't know who you're talking to, so let me clue you in.",
-      },
-      {
-        title: 'If you could only ask one question to each person you meet, what would that question be?',
-        description:
-          "This is not about revenge. This is about justice. A lot of things can change in twelve years, Admiral. Well, that's certainly good to know. About four years. I got tired of hearing how young I looked.",
-      },
-    ]}
-  /> -->
-
-  <Contact2 />
+  <Contact />
 </Layout>
